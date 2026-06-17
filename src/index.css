@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply font-body bg-white text-gray-800;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { @apply font-display; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 inline-flex items-center gap-2 shadow-lg hover:shadow-orange-500/30 hover:shadow-xl hover:-translate-y-0.5;
+  }
+  .btn-secondary {
+    @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-950 font-semibold px-6 py-3 rounded-lg transition-all duration-300 inline-flex items-center gap-2;
+  }
+  .btn-outline {
+    @apply bg-transparent border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 inline-flex items-center gap-2;
+  }
+  .section-label {
+    @apply text-brand-orange font-semibold text-xs uppercase tracking-[0.2em] font-body;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-display font-bold text-navy-950 leading-tight;
+  }
+  .section-title-white {
+    @apply text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white leading-tight;
+  }
+  .glass-card {
+    @apply border border-white/15 rounded-2xl;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+  }
+  .service-card {
+    @apply bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100;
+  }
+  .nav-link {
+    @apply text-gray-300 hover:text-brand-orange transition-colors duration-200 font-medium text-sm;
+  }
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Swiper custom */
+.swiper-pagination-bullet-active { background: #F97316 !important; }
+.swiper-pagination-bullet { background: rgba(255,255,255,0.3) !important; }
+.swiper-button-next, .swiper-button-prev { color: #F97316 !important; }
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, #F97316, #fb923c, #fbbf24);
+  z-index: 9999; transition: width 0.1s ease;
+  box-shadow: 0 0 10px rgba(249,115,22,0.6);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0F172A; }
+::-webkit-scrollbar-thumb { background: #F97316; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #fb923c; }
+
+/* WhatsApp float */
+.whatsapp-float {
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.94);
+  z-index: 10000; display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+/* Dark mode */
+.dark body { @apply bg-navy-950 text-gray-200; }
+.dark .service-card { @apply bg-navy-900 border-navy-800; }
+
+/* Smooth section transitions */
+section { position: relative; }
+
+/* Image hover zoom transition smoothing */
+.group:hover img { transform-origin: center center; }
